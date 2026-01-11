@@ -101,12 +101,16 @@ indicator_rows:
         show_name: true
         show_state: true
         show_icon: true
+        tap_action:
+          action: more-info
         name: Status
       - entity: binary_sensor.2023_ioniq_6_engine
         type: entity
         show_name: true
         show_state: true
         show_icon: true
+        tap_action:
+          action: more-info
         name: "Engine "
       - type: group
         show_name: true
@@ -116,16 +120,60 @@ indicator_rows:
         items:
           - entity: binary_sensor.2023_ioniq_6_front_left_door
             name: Front Left
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_front_right_door
             name: Front Right
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_back_left_door
             name: Back Left
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_back_right_door
             name: Back Right
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_hood
             name: Hood
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_trunk
             name: Trunk
+            show_name: true
+            show_state: true
+            show_icon: true
+      - type: group
+        show_name: true
+        show_icon: true
+        name: Windows
+        icon: mdi:window-closed
+        items:
+          - entity: binary_sensor.2023_ioniq_6_front_left_window
+            name: Front Left
+            show_name: true
+            show_state: true
+            show_icon: true
+          - entity: binary_sensor.2023_ioniq_6_front_right_window
+            name: Front Right
+            show_name: true
+            show_state: true
+            show_icon: true
+          - entity: binary_sensor.2023_ioniq_6_back_left_window
+            name: Back Left
+            show_name: true
+            show_state: true
+            show_icon: true
+          - entity: binary_sensor.2023_ioniq_6_back_right_window
+            name: Back Right
+            show_name: true
+            show_state: true
+            show_icon: true
       - type: group
         show_name: true
         show_icon: true
@@ -134,26 +182,139 @@ indicator_rows:
         items:
           - entity: binary_sensor.2023_ioniq_6_air_conditioner
             name: A/C
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_defrost
             name: Defrost
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_back_window_heater
             name: Rear Defrost
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: binary_sensor.2023_ioniq_6_steering_wheel_heater
             name: Steering Heat
+            show_name: true
+            show_state: true
+            show_icon: true
           - entity: sensor.2023_ioniq_6_set_temperature
             name: Set Temp
+            show_name: true
       - entity: binary_sensor.2023_ioniq_6_ev_battery_plug
         type: entity
         show_name: true
+        show_state: true
+        show_icon: true
+        tap_action:
+          action: more-info
         name: EV Battery Plug
+      - type: entity
+        show_name: true
+        show_state: true
+        show_icon: true
+        show_entity_picture: false
+        include_state_template: false
+        tap_action:
+          action: more-info
+        entity: sensor.2023_ioniq_6_estimated_charge_duration
+        name: Est Charge Duration
+      - type: group
+        name: Tire Pressure
+        icon: mdi:car-tire-alert
+        items:
+          - entity: binary_sensor.2023_ioniq_6_tire_pressure_front_left
+            show_state: true
+            show_name: true
+            show_icon: true
+            tap_action:
+              action: more-info
+            name: Front Left
+          - entity: binary_sensor.2023_ioniq_6_tire_pressure_front_right
+            show_state: true
+            show_name: true
+            show_icon: true
+            tap_action:
+              action: more-info
+            name: Front Right
+          - entity: binary_sensor.2023_ioniq_6_tire_pressure_rear_left
+            show_state: true
+            show_name: true
+            show_icon: true
+            tap_action:
+              action: more-info
+            name: Rear Left
+          - entity: binary_sensor.2023_ioniq_6_tire_pressure_rear_right
+            show_state: true
+            show_name: true
+            show_icon: true
+            tap_action:
+              action: more-info
+            name: Rear Right
+        entity: binary_sensor.2023_ioniq_6_tire_pressure_all
+        show_name: true
+        show_icon: true
+        show_state: true
+      - type: entity
+        show_name: true
+        show_state: true
+        show_icon: true
+        show_entity_picture: false
+        include_state_template: false
+        tap_action:
+          action: more-info
+        entity: binary_sensor.2023_ioniq_6_washer_fluid_warning
+        name: Washer Fluid Warning
+      - type: entity
+        show_name: true
+        show_state: true
+        show_icon: true
+        show_entity_picture: false
+        include_state_template: false
+        tap_action:
+          action: more-info
+        entity: sensor.2023_ioniq_6_last_updated_at
+        name: Last Updated At
 range_info:
+  - energy_level:
+      entity: sensor.2023_ioniq_6_ev_range
+      max_value: 240
+    charging_entity: binary_sensor.ev_charger_status
+    progress_color: "#354973"
+  - energy_level:
+      entity: sensor.2023_ioniq_6_car_battery_level
+    charging_entity: binary_sensor.ev_charger_status
+    progress_color: "#f083a7"
+    charging_template: "no"
+  - energy_level:
+      entity: sensor.2023_ioniq_6_ev_charging_power
+      max_value: 11
+    charging_entity: binary_sensor.ev_charger_status
+    progress_color: "#373edb"
+  - energy_level:
+      entity: number.2023_ioniq_6_ac_charging_limit
+      value_position: outside
+      hide_icon: false
+    charging_entity: binary_sensor.ev_charger_status
+    progress_color: "#22a291"
+    charging_template: "no"
+  - energy_level:
+      entity: number.2023_ioniq_6_dc_charging_limit
+    charging_entity: binary_sensor.ev_charger_status
+    progress_color: "#e18734"
+    charging_template: "no"
   - energy_level:
       entity: sensor.2023_ioniq_6_ev_battery_level
       tap_action:
         action: more-info
+      value_alignment: start
+      hide_icon: true
     range_level:
       entity: sensor.2023_ioniq_6_ev_range
       value_position: outside
+    charging_entity: ""
     progress_color: "#1e88e5"
     color_blocks: true
     color_thresholds:
@@ -173,11 +334,111 @@ button_cards:
     show_primary: true
     show_secondary: true
     layout: horizontal
-  - entity: sensor.2023_ioniq_6_ev_range
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_distance_today
     show_icon: true
     show_primary: true
     show_secondary: true
     layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_efficiency_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_energy_cost_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_energy_consumed_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_energy_regenerated_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_miles_per_kwh_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_mpge_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.ev_net_efficiency_today
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
+  - entity: sensor.2023_ioniq_6_vehicle_identification_number
+    show_icon: true
+    show_primary: true
+    show_secondary: true
+    layout: horizontal
+    button_type: action
+    tap_action:
+      action: more-info
+    card_type: default
+    icon_type: icon
+    primary_info: name
 ```
 
 ### Customization Tips
