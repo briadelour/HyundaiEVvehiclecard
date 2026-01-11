@@ -23,7 +23,7 @@ This project builds upon the excellent work of:
 - HACS (Home Assistant Community Store) installed
 - A compatible Hyundai or Kia vehicle with Bluelink/UVO services
 - Active Bluelink/UVO subscription
-- For EV Efficiency Stats and Electricity Costs see: evstats.md
+- For EV Efficiency Stats and Electricity Costs see: [evstats.md](evstats.md)
 
 ## Installation
 
