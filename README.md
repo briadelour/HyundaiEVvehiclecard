@@ -2,7 +2,10 @@
 
 A comprehensive guide to setting up a beautiful vehicle status dashboard for your Hyundai EV using Home Assistant.
 
-<img width="506" height="713" alt="image" src="https://github.com/user-attachments/assets/654c340b-1f35-4158-8f87-89de30c0c361" />
+<img width="500" height="710" alt="image" src="https://github.com/user-attachments/assets/114c797e-0761-4176-a0fd-1758adbcd185" />
+
+<img width="505" height="162" alt="image" src="https://github.com/user-attachments/assets/d8af131f-2807-4ebd-a4a1-f143757ef4d9" />
+
 
 ## Overview
 
