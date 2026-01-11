@@ -1,6 +1,9 @@
 # How I'm calculating EV Efficiency and Electricity Costs
 By taking the daily statistics from the Bluelink integration to create some template sensors.  Then combined with a rest api sensor that pulls the current costs of electricity for my area, I can do some efficiency and cost calculations.
 
+## Prerequisite for Electricity Price data
+You must sign up for an API key from https://api.eia.gov then change the parameters to your retail sales data.
+
 ## Sensor.yaml entry
 ```yaml
 # NC Residential Electricity Price via EIA v2 API
