@@ -40,7 +40,7 @@ Add this to your `sensor.yaml` file to fetch current electricity rates:
     api_key: !secret my_eia_api_key
     data[]: price
     facets[sectorid][]: RES
-    facets[stateid][]: NC  # Change to your state
+    facets[stateid][]: NC
     frequency: monthly
     length: 1
 
@@ -57,8 +57,10 @@ Add this to your `sensor.yaml` file to fetch current electricity rates:
     - price
 
   value_template: >
-    {% if value_json is defined and value_json.price is defined %}
-      {{ value_json.price | float }}
+    {% if value_json.response is defined and 
+          value_json.response.data is defined and 
+          value_json.response.data | length > 0 %}
+      {{ value_json.response.data[0].price | float }}
     {% else %}
       0
     {% endif %}
