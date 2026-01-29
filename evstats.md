@@ -183,6 +183,19 @@ Add these templates to your `templates.yaml` file:
         0
       {% endif %}
     icon: mdi:leaf
+
+  - name: "EV Efficiency Today (EPA)"
+    unique_id: ev_efficiency_today_epa
+    state: >
+      {% set distance = state_attr('sensor.2023_ioniq_6_todays_daily_driving_stats', 'distance') | float(0) %}
+      {% set consumed = state_attr('sensor.2023_ioniq_6_todays_daily_driving_stats', 'total_consumed') | float(0) %}
+      {% if distance > 0 %}
+        {{ (((consumed / 1000) / distance) * 100) | round(1) }}
+      {% else %}
+        0
+      {% endif %}
+    unit_of_measurement: "kWh/100mi"
+    icon: mdi:gauge
 ```
 
 #### Cost Calculations
